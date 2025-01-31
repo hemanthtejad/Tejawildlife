@@ -1,0 +1,49 @@
+---
+import Photographer from './Photographer.astro';
+import SocialLinks from './SocialLinks.astro';
+---
+
+<section class="relative min-h-screen flex items-center">
+  <div class="absolute inset-0">
+    <div class="absolute inset-0 bg-gradient-to-r from-elegant-black via-elegant-black/95 to-transparent z-10"></div>
+    <img
+      src="https://images.unsplash.com/photo-1564760055775-d63b17a55c44?q=80&w=2940"
+      alt="Wildlife Background"
+      class="w-full h-full object-cover"
+    />
+  </div>
+  
+  <div class="relative container mx-auto px-4 flex flex-col md:flex-row items-center gap-12 z-20">
+    <div class="w-full md:w-1/3">
+      <div class="relative">
+        <img
+          src="/teja-portrait.jpg"
+          alt="Teja Yantrapalli"
+          class="w-full aspect-[3/4] object-cover rounded-lg shadow-2xl border border-elegant-gold/20"
+        />
+        <div class="absolute inset-0 border-2 border-elegant-gold rounded-lg transform translate-x-4 translate-y-4 -z-10"></div>
+      </div>
+    </div>
+    
+    <div class="w-full md:w-2/3 text-elegant-cream">
+      <h1 class="font-display text-5xl md:text-7xl mb-4 text-elegant-gold">
+        Teja Yantrapalli
+      </h1>
+      <p class="text-xl md:text-2xl mb-6 font-light">
+        Capturing the untamed beauty of wildlife through my lens
+      </p>
+      <p class="mb-8 text-elegant-gold-light">
+        Wildlife Photographer | Conservation Advocate | Visual Storyteller
+      </p>
+      <div class="flex flex-col sm:flex-row gap-6 items-start">
+        <a
+          href="#gallery"
+          class="inline-block bg-elegant-gold text-elegant-black px-8 py-3 rounded hover:bg-elegant-gold-light transition-colors"
+        >
+          View Portfolio
+        </a>
+        <SocialLinks />
+      </div>
+    </div>
+  </div>
+</section>

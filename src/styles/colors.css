@@ -1,0 +1,11 @@
+/* Elegant Nature Color Palette */
+:root {
+  /* Primary Colors */
+  --elegant-black: #1A1A1A;    /* Rich black for backgrounds */
+  --elegant-gold: #D4AF37;     /* Warm gold for accents */
+  --elegant-cream: #FFFDD0;    /* Soft cream for text */
+  
+  /* Accent Colors */
+  --elegant-gold-light: #E5C76B;  /* Lighter gold for hover states */
+  --elegant-dark: #121212;        /* Deeper black for layering */
+}

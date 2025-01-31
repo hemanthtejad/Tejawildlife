@@ -1,0 +1,82 @@
+---
+---
+
+<section class="relative h-screen w-full overflow-hidden bg-black">
+  <div class="absolute inset-0">
+    <div id="youtube-player" class="relative w-full h-full">
+      <!-- Fallback background image -->
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://i.imgur.com/XbZCoQm.jpg');"></div>
+    </div>
+    <!-- Overlay to ensure text readability -->
+    <div class="absolute inset-0 bg-black/40"></div>
+  </div>
+</section>
+
+<script>
+  const tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  const firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  let player;
+  
+  window.onYouTubeIframeAPIReady = function() {
+    player = new YT.Player('youtube-player', {
+      videoId: '200rTqhmCfw',
+      playerVars: {
+        autoplay: 1,
+        loop: 1,
+        mute: 1,
+        controls: 0,
+        showinfo: 0,
+        modestbranding: 1,
+        playsinline: 1,
+        enablejsapi: 1,
+        playlist: '200rTqhmCfw'
+      },
+      events: {
+        onReady: (event) => {
+          event.target.playVideo();
+        }
+      }
+    });
+  };
+
+  function scaleVideo() {
+    const video = document.querySelector('#youtube-player');
+    if (!video) return;
+
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    let aspectRatio;
+
+    // Different aspect ratios for mobile and desktop
+    if (width <= 768) {
+      aspectRatio = 9/16; // Vertical video for mobile
+    } else {
+      aspectRatio = 16/9; // Horizontal video for desktop
+    }
+
+    let newWidth = width;
+    let newHeight = width / aspectRatio;
+
+    if (newHeight < height) {
+      newHeight = height;
+      newWidth = height * aspectRatio;
+    }
+
+    video.style.width = newWidth + 'px';
+    video.style.height = newHeight + 'px';
+    video.style.left = (width - newWidth) / 2 + 'px';
+    video.style.top = (height - newHeight) / 2 + 'px';
+  }
+
+  // Scale video on load and resize
+  window.addEventListener('resize', scaleVideo);
+  window.addEventListener('load', scaleVideo);
+  
+  // Handle orientation change for mobile devices
+  window.addEventListener('orientationchange', () => {
+    setTimeout(scaleVideo, 100);
+  });
+</script>

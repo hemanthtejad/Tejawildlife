@@ -1,0 +1,82 @@
+---
+---
+
+<section class="relative h-screen w-full overflow-hidden bg-black">
+  <!-- YouTube iframe wrapper -->
+  <div class="absolute inset-0">
+    <div id="youtube-player" class="relative w-full h-full">
+      <!-- Fallback background image -->
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://i.imgur.com/XbZCoQm.jpg');"></div>
+      <!-- YouTube iframe will be inserted here by JavaScript -->
+    </div>
+    <!-- Overlay to ensure text readability -->
+    <div class="absolute inset-0 bg-black/40"></div>
+  </div>
+
+  <!-- Hero content -->
+  <div class="relative h-full flex items-center justify-center text-white text-center px-4">
+    <div>
+      <h1 class="text-5xl md:text-7xl font-bold mb-6">Welcome to Our Site</h1>
+      <p class="text-xl md:text-2xl max-w-2xl mx-auto">Experience the beauty of seamless video integration</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Load YouTube API
+  const tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  const firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  let player;
+  
+  // Initialize YouTube player when API is ready
+  window.onYouTubeIframeAPIReady = function() {
+    player = new YT.Player('youtube-player', {
+      videoId: '200rTqhmCfw', // Replace with your YouTube video ID
+      playerVars: {
+        autoplay: 1,
+        loop: 1,
+        mute: 1,
+        controls: 0,
+        showinfo: 0,
+        modestbranding: 1,
+        playsinline: 1,
+        enablejsapi: 1,
+        playlist: 'qC0vDKVPCrw' // Required for looping, same as videoId
+      },
+      events: {
+        onReady: (event) => {
+          event.target.playVideo();
+        }
+      }
+    });
+  };
+
+  // Handle responsive scaling
+  function scaleVideo() {
+    const video = document.querySelector('#youtube-player');
+    if (!video) return;
+
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    const aspectRatio = 16 / 9;
+
+    let newWidth = width;
+    let newHeight = width / aspectRatio;
+
+    if (newHeight < height) {
+      newHeight = height;
+      newWidth = height * aspectRatio;
+    }
+
+    video.style.width = newWidth + 'px';
+    video.style.height = newHeight + 'px';
+    video.style.left = (width - newWidth) / 2 + 'px';
+    video.style.top = (height - newHeight) / 2 + 'px';
+  }
+
+  window.addEventListener('resize', scaleVideo);
+  scaleVideo();
+</script>

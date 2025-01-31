@@ -1,0 +1,26 @@
+---
+const links = [
+  { text: 'Home', href: '/' },
+  { text: 'Gallery', href: '#gallery' },
+  { text: 'About', href: '#about' },
+  { text: 'Contact', href: '#contact' },
+];
+---
+
+<nav class="fixed w-full bg-white/90 backdrop-blur-sm z-50 py-4">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold text-gray-900">TY</a>
+      <div class="hidden sm:flex sm:space-x-8">
+        {links.map(link => (
+          <a
+            href={link.href}
+            class="text-gray-600 hover:text-gray-900 transition-colors"
+          >
+            {link.text}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</nav>

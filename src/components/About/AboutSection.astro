@@ -1,0 +1,52 @@
+---
+import Testimonial from './Testimonial.astro';
+import AwardsSection from './AwardsSection.astro';
+import PublicationsSection from './PublicationsSection.astro';
+---
+
+<section id="about" class="py-20 px-4 bg-elegant-dark">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-4xl font-display text-elegant-gold mb-6">About Me</h2>
+        <p class="text-lg text-elegant-cream/80 mb-6">
+          With a passion for capturing wildlife in their natural habitats, 
+          I've dedicated my life to documenting the raw beauty of nature through my lens.
+        </p>
+        <p class="text-lg text-elegant-cream/80">
+          My work has been featured in prestigious wildlife publications and exhibitions,
+          showcasing the beauty and importance of wildlife conservation.
+        </p>
+      </div>
+      <div class="relative">
+        <img
+          src="https://i.ibb.co/Y79Vmb0/image.png"
+          alt="Teja in action"
+          class="rounded-lg shadow-xl border border-elegant-gold/20"
+        />
+        <div class="absolute inset-0 border border-elegant-gold rounded-lg transform translate-x-4 translate-y-4 -z-10"></div>
+      </div>
+    </div>
+    
+    <div class="mt-20 grid md:grid-cols-2 gap-12">
+      <AwardsSection />
+      <PublicationsSection />
+    </div>
+    
+    <div class="mt-20">
+      <h3 class="text-3xl font-display text-elegant-gold text-center mb-12">Client Testimonials</h3>
+      <div class="grid md:grid-cols-2 gap-8">
+        <Testimonial
+          quote="His ability to capture wildlife in their most natural moments is extraordinary."
+          author="Jane Smith"
+          role="National Geographic Editor"
+        />
+        <Testimonial
+          quote="Working with Teja was an incredible experience. The results exceeded our expectations."
+          author="John Davis"
+          role="Wildlife Magazine"
+        />
+      </div>
+    </div>
+  </div>
+</section>

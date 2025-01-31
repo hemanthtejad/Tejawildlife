@@ -1,0 +1,38 @@
+---
+const publications = [
+  {
+    title: 'The Art of Wildlife Photography',
+    publication: 'National Geographic Magazine',
+    date: 'December 2023',
+    type: 'Feature Article'
+  },
+  {
+    title: 'Conservation Through the Lens',
+    publication: 'Wildlife Photography Journal',
+    date: 'September 2023',
+    type: 'Cover Story'
+  },
+  {
+    title: 'Capturing the Wild: A Photographer\'s Journey',
+    publication: 'Photography Today',
+    date: 'June 2023',
+    type: 'Interview'
+  }
+];
+---
+
+<div class="space-y-8">
+  <h3 class="text-3xl font-display text-elegant-gold">Publications</h3>
+  <div class="grid gap-6">
+    {publications.map(pub => (
+      <div class="border border-elegant-gold/20 rounded-lg p-6 hover:border-elegant-gold/40 transition-colors">
+        <div class="flex justify-between items-start mb-2">
+          <h4 class="text-xl font-display text-elegant-gold-light">{pub.title}</h4>
+          <span class="text-elegant-cream/60 text-sm">{pub.date}</span>
+        </div>
+        <p class="text-elegant-cream/80">{pub.publication}</p>
+        <p class="text-elegant-cream/60 text-sm mt-1">{pub.type}</p>
+      </div>
+    ))}
+  </div>
+</div>

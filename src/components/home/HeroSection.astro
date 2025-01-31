@@ -1,0 +1,57 @@
+---
+import { Camera, Instagram, Mail, MapPin } from 'lucide-astro';
+import SocialButton from '../ui/SocialButton.astro';
+import Badge from '../ui/Badge.astro';
+---
+
+<section class="min-h-screen pt-24 pb-16 px-4 bg-elegant-black">
+  <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <div class="flex items-center gap-2">
+          <Badge>Wildlife Photographer</Badge>
+          <Badge variant="outline">Conservation Advocate</Badge>
+        </div>
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-display font-bold leading-tight text-elegant-gold">
+          Hello, I'm Teja Yantrapalli
+        </h1>
+      </div>
+      
+      <p class="text-xl text-elegant-cream/80 max-w-2xl leading-relaxed">
+        Capturing the raw beauty of wildlife through my lens. I specialize in documenting untamed moments in nature, bringing awareness to wildlife conservation.
+      </p>
+
+      <div class="flex items-center gap-3 text-elegant-cream/60">
+        <MapPin class="w-5 h-5" />
+        <span>Based in Hyderabad, India</span>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 pt-4">
+        <SocialButton href="#contact" variant="primary">
+          <Mail class="w-5 h-5 mr-2" />
+          Contact me
+        </SocialButton>
+        <SocialButton href="https://instagram.com/tejawildlife" variant="secondary" external>
+          <Instagram class="w-5 h-5 mr-2" />
+          @tejawildlife
+        </SocialButton>
+      </div>
+    </div>
+
+    <div class="relative">
+      <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-elegant-dark shadow-2xl">
+        <img
+          src="https://i.ibb.co/34SJnrk/teja-portrait.jpg"
+          alt="Teja Yantrapalli"
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <div class="absolute -bottom-6 -right-6 bg-elegant-gold text-elegant-black rounded-lg shadow-xl p-4">
+        <Camera class="w-6 h-6" />
+      </div>
+      <div class="absolute -top-6 -left-6 bg-elegant-dark text-elegant-cream rounded-lg shadow-xl p-4 border border-elegant-gold/20">
+        <span class="font-medium">10+ Years Experience</span>
+      </div>
+    </div>
+  </div>
+</section>

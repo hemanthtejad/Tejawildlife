@@ -1,0 +1,30 @@
+---
+import ServiceCard from './ServiceCard.astro';
+
+const services = [
+  {
+    title: 'Wildlife Photography',
+    description: 'Professional wildlife photography services for magazines, documentaries, and private collections.',
+    price: 'Starting at $2,000/day'
+  },
+  {
+    title: 'Photography Workshops',
+    description: 'Learn wildlife photography techniques in hands-on workshops across various locations.',
+    price: 'From $500/person'
+  },
+  {
+    title: 'Fine Art Prints',
+    description: 'Museum-quality prints of wildlife photographs, available in various sizes.',
+    price: 'From $200'
+  }
+];
+---
+
+<section id="services" class="py-20 px-4 bg-elegant-dark">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-4xl font-display text-elegant-gold text-center mb-12">Services</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      {services.map(service => <ServiceCard {...service} />)}
+    </div>
+  </div>
+</section>

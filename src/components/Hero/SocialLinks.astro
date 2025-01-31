@@ -1,0 +1,25 @@
+---
+const socialLinks = [
+  { 
+    icon: 'instagram', 
+    href: 'https://www.instagram.com/tejawildlife', 
+    label: 'Follow on Instagram',
+    username: '@tejawildlife'
+  }
+];
+---
+
+<div class="flex items-center gap-6">
+  {socialLinks.map(link => (
+    <a
+      href={link.href}
+      class="group flex items-center gap-3 text-elegant-cream hover:text-elegant-gold transition-colors"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={link.label}
+    >
+      <i class={`fab fa-${link.icon} text-2xl text-elegant-gold group-hover:text-elegant-gold-light`}></i>
+      <span class="text-sm font-medium">{link.username}</span>
+    </a>
+  ))}
+</div>

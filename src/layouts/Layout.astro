@@ -1,0 +1,32 @@
+---
+import '@fontsource/playfair-display/700.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Wildlife Photography by Teja Yantrapalli" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-elegant-black text-elegant-cream min-h-screen flex flex-col">
+    <Navigation />
+    <main class="flex-grow">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

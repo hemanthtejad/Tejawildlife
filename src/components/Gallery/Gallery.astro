@@ -1,0 +1,45 @@
+---
+import GalleryImage from './GalleryImage.astro';
+import GalleryModal from './GalleryModal.astro';
+import type { ImageDetails } from './types';
+
+const images: ImageDetails[] = [
+  {
+    id: '1',
+    src: 'https://images.unsplash.com/photo-1549366021-9f761d450615',
+    alt: 'Lion in Savanna',
+    species: 'African Lion',
+    location: 'Serengeti, Tanzania',
+    camera: {
+      make: 'Canon',
+      model: 'EOS R5',
+      lens: 'Canon RF 100-500mm f/4.5-7.1L',
+      focalLength: '500mm',
+      aperture: 'f/5.6',
+      shutterSpeed: '1/2000',
+      iso: '800'
+    },
+    postProcessing: {
+      software: ['Adobe Lightroom', 'Adobe Photoshop'],
+      adjustments: ['Color grading', 'Exposure balance', 'Sharpening'],
+      effects: ['Noise reduction', 'Clarity enhancement']
+    },
+    shooting: {
+      lighting: 'Natural light, Golden hour',
+      setup: 'Handheld from safari vehicle',
+      date: 'June 15, 2023, 6:30 AM'
+    }
+  }
+];
+---
+
+<section id="gallery" class="py-20 px-4 bg-elegant-dark">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-4xl font-display text-elegant-gold text-center mb-12">Featured Work</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {images.map(image => <GalleryImage {...image} />)}
+    </div>
+  </div>
+</section>
+
+<GalleryModal images={images} />
